@@ -11,15 +11,21 @@ import re
 my_text = "День почався дуже добре. Добре світить сонце, добре йти на прогулянку. \
            Люди радісні, і це добре. Коли все добре, настрій стає ще кращим."
 
-pattern = r'[А-яі]+'
 
-words = re.findall(pattern, my_text)
+def simple_count(text: str):
+    pattern = r'[А-яі]+'
 
-my_counter = {}
-words = [i.lower() for i in words]
+    words = re.findall(pattern, text)
 
-for word in words:
-    my_counter[word] = words.count(word)
+    my_counter = {}
+    words = [i.lower() for i in words]
 
-for k, v in my_counter.items():
-    print(f'слово "{k}" - count {v} times')
+    for word in words:
+        my_counter[word] = words.count(word)
+
+    for k, v in my_counter.items():
+        print(f'слово "{k}" - count {v} times')
+
+
+if __name__ == '__main__':
+    simple_count(my_text)
