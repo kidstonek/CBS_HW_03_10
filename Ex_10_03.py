@@ -13,7 +13,7 @@ my_input = 'Користувач вводить з клавіатури проп
 
 
 def last_3_characters(some_input: str):
-    pattern = r'[А-яІіЇі]+'
+    pattern = r'[A-zА-яІіЇі]+'
     usr_input = re.findall(pattern, some_input)
     return [word[len(word)-3:] for word in usr_input]
 
