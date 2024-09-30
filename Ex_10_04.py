@@ -7,15 +7,19 @@
 
 import re
 
-my_text = ('День почався дуже добре. Добре світить сонце, добре йти на прогулянку. / '
+my_text = ('День почався дуже добре. Добре світить сонце, добре йти на прогулянку.'
         'Люди радісні, і це добре. Коли все добре, настрій стає ще кращим')
 
 
 def simple_text_def(text: str):
-        my_words_pattern = r'[А-яЇїІі]+'
+        my_words_pattern = r'[А-яЇїІіє]+'
         my_find = re.findall(my_words_pattern, text)
-        words = [i.lower() for i in my_find]
-
+        unique_words = []
+        for word in my_find:
+            if my_find.count(word) == 1:
+                unique_words.append(word)
+        return (f'Унікальні слова {", ".join(unique_words)} , кількість унікальних слів {len(unique_words)}'
+                f' Усього слів: {len(my_find)}')
 
 if __name__ == '__main__':
-    simple_text_def(my_text)
+    print(simple_text_def(my_text))
